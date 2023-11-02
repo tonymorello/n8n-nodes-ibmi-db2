@@ -9,11 +9,9 @@ It uses node-jt400 to establish a TCP/IP connection to the database and runs a q
 
 [Installation](#installation)  
 [Operations](#operations)  
-[Credentials](#credentials)  <!-- delete if no auth needed -->  
-[Compatibility](#compatibility)  
-[Usage](#usage)  <!-- delete if not using this section -->  
+[Credentials](#credentials)
+[Compatibility](#compatibility)
 [Resources](#resources)  
-[Version history](#version-history)  <!-- delete if not using this section -->
 
 ## Installation
 
