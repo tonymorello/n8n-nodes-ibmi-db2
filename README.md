@@ -9,8 +9,8 @@ It uses node-jt400 to establish a TCP/IP connection to the database and runs a q
 
 [Installation](#installation)  
 [Operations](#operations)  
-[Credentials](#credentials)
-[Compatibility](#compatibility)
+[Credentials](#credentials)  
+[Compatibility](#compatibility)  
 [Resources](#resources)  
 
 ## Installation
