@@ -15,7 +15,7 @@ import * as jt400 from 'node-jt400';
 export class IbmiDb2 implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'IBMi DB2',
-		name: 'IbmiDb2',
+		name: 'ibmiDb2',
 		icon: 'file:IbmiDb2.svg',
 		group: ['transform'],
 		version: 1,
@@ -27,7 +27,7 @@ export class IbmiDb2 implements INodeType {
 		outputs: ['main'],
 		credentials: [
 			{
-				name: 'IbmiDb2JdbcApi',
+				name: 'ibmiDb2JdbcApi',
 				required: true,
 			},
 		],
@@ -68,7 +68,7 @@ export class IbmiDb2 implements INodeType {
 	};
 
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
-		const credentials = await this.getCredentials('IBMiDb2JDBC');
+		const credentials = await this.getCredentials('ibmiDb2JdbcApi');
 
 		if (credentials === undefined) {
 			throw new NodeOperationError(this.getNode(), 'No credentials found for this node.');
