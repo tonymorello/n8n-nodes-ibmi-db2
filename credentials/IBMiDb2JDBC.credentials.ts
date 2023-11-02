@@ -3,9 +3,9 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class IBMiDb2JDBC implements ICredentialType {
-	name = 'IBMiDb2JDBC';
-	displayName = 'IBM i Db2';
+export class IbmiDb2JdbcApi implements ICredentialType {
+	name = 'iBMiDb2JDBCApi';
+	displayName = 'IBM I Db2 API';
 	documentationUrl = 'https://www.ibm.com/docs/en/i/7.5?topic=ssw_ibm_i_75/rzahh/javadoc/com/ibm/as400/access/doc-files/JDBCProperties.htm';
 	properties: INodeProperties[] = [
 		{

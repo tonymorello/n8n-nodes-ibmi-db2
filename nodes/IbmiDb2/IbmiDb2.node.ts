@@ -12,11 +12,11 @@ import {
 
 import * as jt400 from 'node-jt400';
 
-export class IBMiDb2 implements INodeType {
+export class IbmiDb2 implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'IBMi DB2',
-		name: 'IBMiDb2',
-		icon: 'file:IBMiDb2.svg',
+		name: 'IbmiDb2',
+		icon: 'file:IbmiDb2.svg',
 		group: ['transform'],
 		version: 1,
 		description: 'Connect to IBM iSeries DB2 Instance',
@@ -27,7 +27,7 @@ export class IBMiDb2 implements INodeType {
 		outputs: ['main'],
 		credentials: [
 			{
-				name: 'IBMiDb2JDBC',
+				name: 'IbmiDb2JdbcApi',
 				required: true,
 			},
 		],
@@ -37,7 +37,7 @@ export class IBMiDb2 implements INodeType {
 				name: 'query',
 				type: 'string',
 				typeOptions: {
-					rows: 5, // rows [type: string]: Number of rows the input field should have. By default it is "1"
+					rows: 5,
 				},
 				displayOptions: {
 					show: {
@@ -47,21 +47,22 @@ export class IBMiDb2 implements INodeType {
 				default: '',
 				placeholder: 'SELECT * FROM SCHEMA.TABLE LIMIT 10',
 				required: true,
-				description: 'The SQL query to execute.',
+				description: 'The SQL query to execute',
 			},
 			{
 				displayName: 'Operation',
 				name: 'operation',
 				type: 'options',
+				noDataExpression: true,
 				options: [
 					{
 						name: 'Execute Query',
 						value: 'executeQuery',
 						description: 'Execute a DB2 SQL query for IBM i',
+						action: 'Execute a DB2 SQL query for IBM i',
 					},
 				],
 				default: 'executeQuery',
-				description: 'The operation to perform.',
 			},
 		],
 	};

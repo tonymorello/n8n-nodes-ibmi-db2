@@ -32,10 +32,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/IBMiDb2JDBC.credentials.js"
+      "dist/credentials/IbmiDb2JdbcApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/IBMiDb2/IBMiDb2.node.js"
+      "dist/nodes/IbmiDb2/IbmiDb2.node.js"
     ]
   },
   "devDependencies": {
