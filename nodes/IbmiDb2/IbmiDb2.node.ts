@@ -36,7 +36,10 @@ export class IbmiDb2 implements INodeType {
 				displayName: 'Query',
 				name: 'query',
 				type: 'string',
+				noDataExpression: true,
 				typeOptions: {
+					editor: 'sqlEditor',
+					sqlDialect: 'StandardSQL',
 					rows: 5,
 				},
 				displayOptions: {
