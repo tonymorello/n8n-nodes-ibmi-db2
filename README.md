@@ -2,7 +2,7 @@
 
 This is an n8n community node. It lets you query a DB2 instance running on iSeries (AS400) in your n8n workflows.
 
-I created this node for internal use and used [GeorgeJeffcock/n8n](https://github.com/GeorgeJeffcock/n8n) repo for reference as I was learning how to write custom nodes.  
+I created this node for internal use (initially based off of [GeorgeJeffcock/n8n](https://github.com/GeorgeJeffcock/n8n)'s repo for reference as I was learning how to write custom nodes).  
 It uses node-jt400 to establish a TCP/IP connection to the database and runs a query returning the results as data that can be used in n8n.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
@@ -19,8 +19,10 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
-Currently this node allows you to execute raw queries on a DB2 instance running on iSeries (or AS400).   
-I might add more operations if needed.
+* **Query** - Execute a SQL query
+* **Insert** - Insert rows in database
+* **Update** - Update rows in database
+* **Delete** - Delete rows in database
 
 ## Credentials
 
