@@ -33,6 +33,8 @@ The node supports the following credentials/settings:
 * **Database** (optional) - _Default database/schema_
 * **Libraries** (optional) - _Specifies one or more libraries that you want to add/replace in the library list_
 * **Port** (optional) - _Connection port_
+* **Translate Binary** (optional) - _Specifies whether binary data is translated. If this property is set to "true", then BINARY and VARBINARY fields are treated as CHAR and VARCHAR fields (Default: True)_
+* **Port** (optional) - _Specifies how Boolean objects are interpreted when setting the value for a character field/parameter. Setting the property to "false", would store the Boolean object in the character field as either "1" or "0 (Default: False)"_
 
 ## Compatibility
 
