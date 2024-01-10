@@ -9,8 +9,9 @@ export function getConfig(credentials: IDataObject) {
 		port: credentials.port as number,
 		database: credentials.database as string,
 		libraries: credentials.libraries as string,
-		prompt: 'false' as string, // Daemon
-		'translate binary': 'true' as string
+		'translate binary': credentials.translate_binary as string,
+		'translate boolean': credentials.translate_boolean as string,
+		prompt: 'false' as string // Daemon
 	};
 }
 
