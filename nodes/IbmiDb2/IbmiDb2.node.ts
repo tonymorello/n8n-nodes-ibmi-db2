@@ -17,6 +17,8 @@ import {
 	testConnection
 } from "./GenericFunctions";
 
+import { getResolvables } from 'n8n-nodes-base/dist/utils/utilities';
+
 export class IbmiDb2 implements INodeType {
 
 	description: INodeTypeDescription = {
@@ -315,9 +317,28 @@ export class IbmiDb2 implements INodeType {
 
 		try {
 			if (operation === 'executeQuery') {
-				const queryString = this.getNodeParameter('query', 0) as string;
-				const queryResult = await pool.query(queryString);
-				returnItems = this.helpers.returnJsonArray(queryResult as IDataObject[]);
+				const queryQueue = items.map(async (_, index) => {
+					let rawQuery = (this.getNodeParameter('query', index) as string).trim();
+					for (const resolvable of getResolvables(rawQuery)) {
+						rawQuery = rawQuery.replace(
+							resolvable,
+							this.evaluateExpression(resolvable, index) as string,
+						);
+					}
+					return pool.query(rawQuery);
+				});
+
+				returnItems = ((await Promise.all(queryQueue)) as any[][]).reduce(
+					(collection, results, index) => {
+						const executionData = this.helpers.constructExecutionMetaData(
+							this.helpers.returnJsonArray(results as unknown as IDataObject[]),
+							{ itemData: { item: index } },
+						);
+						collection.push(...executionData);
+						return collection;
+					},
+					[] as IDataObject[],
+				);
 			}
 
 			// ----------------------------------
