@@ -7,11 +7,32 @@ It uses node-jt400 to establish a TCP/IP connection to the database and runs a q
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
+[Requirements](#requirements)  
 [Installation](#installation)  
 [Operations](#operations)  
 [Credentials](#credentials)  
 [Compatibility](#compatibility)  
 [Resources](#resources)  
+
+## Requirements
+
+Since this package uses [node-jt400](https://github.com/tryggingamidstodin/node-jt400) to connect to IBMi/AS400, prior to installing the node, your environment will need to meet the following requirements:
+
+### Linux
+
+* g++
+* make
+
+### Windows
+* [Windows Build Tools](https://www.npmjs.com/package/windows-build-tools)
+
+### Mac
+
+* [Xcode IDE](https://developer.apple.com/xcode/ide/)
+
+### Docker
+Due to its dependencies, currently this package is not compatible with the Docker version of n8n out of the box, unless
+you modify the base image to include the required tools.
 
 ## Installation
 
