@@ -37,7 +37,7 @@ you modify the base image to include the required tools as shown in the workarou
 #### Workaround
 
 1. Create a new `Dockerfile` and paste the following content:
-	```
+	```Dockerfile
 	# Use the latest image from n8n
 	FROM n8nio/n8n:latest
  
