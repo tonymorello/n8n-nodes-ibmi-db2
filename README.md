@@ -56,6 +56,9 @@ you modify the base image to include the required tools as shown in the workarou
 
 You should now be able to install the node from the frontend without errors.
 
+> [!NOTE]
+> You will need to rebuild your custom image any time you want to update to a newer version of n8n.
+
 ## Installation
 
 Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
