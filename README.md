@@ -32,7 +32,29 @@ Since this package uses [node-jt400](https://github.com/tryggingamidstodin/node-
 
 ### Docker
 Due to its dependencies, currently this package is not compatible with the Docker version of n8n out of the box, unless
-you modify the base image to include the required tools.
+you modify the base image to include the required tools as shown in the workaround below.
+
+#### Workaround
+
+1. Create a new `Dockerfile` and paste the following content:
+	```
+	# Use the latest image from n8n
+	FROM n8nio/n8n:latest
+ 
+	# Switch to root user
+	USER root
+ 
+	# Install packages necessary to build the custom node's dependencies
+	RUN apk add --update --no-cache bash make g++ make python3 py3-pip openjdk8
+ 
+	# Switch back to node user
+	USER node
+	```
+2. From the same folder run `docker build -t my_custom_image/n8n .`
+3. If you did not create a volume for n8n yet run `docker volume create n8n_data`
+4. Run `docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n my_custom_image/n8n` (Refer to the [official documentation](https://docs.n8n.io/hosting/installation/docker/#starting-n8n) for additional options)
+
+You should now be able to install the node from the frontend without errors.
 
 ## Installation
 
