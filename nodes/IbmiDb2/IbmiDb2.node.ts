@@ -37,6 +37,7 @@ export class IbmiDb2 implements INodeType {
 			{
 				name: 'ibmiDb2JdbcApi',
 				required: true,
+				// TODO: Enable credentials test function when n8n fixes it for custom nodes
 				// testedBy: 'dbConnectionTest',
 			},
 		],
@@ -272,7 +273,6 @@ export class IbmiDb2 implements INodeType {
 	};
 
 	methods = {
-		// TODO: Find out why this doesn't work
 		credentialTest: {
 			async dbConnectionTest(
 				this: ICredentialTestFunctions,
